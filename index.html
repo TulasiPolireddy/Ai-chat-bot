@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>CampusAI | Smart College Assistant</title>
+    <title>CampusAI | 4-Language Smart College Assistant</title>
     <!-- Google Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <!-- Font Awesome Icons -->
@@ -13,7 +13,7 @@
 <body>
 
     <div class="chat-app-container">
-        <!-- Sidebar / Navigation Drawer -->
+        <!-- Sidebar Navigation -->
         <aside class="chat-sidebar" id="chatSidebar">
             <div class="brand">
                 <div class="brand-logo">
@@ -21,46 +21,49 @@
                 </div>
                 <div>
                     <h2>CampusAI</h2>
-                    <span class="badge">v2.5 Hybrid</span>
+                    <span class="badge">Multilingual 4-in-1</span>
                 </div>
             </div>
 
             <div class="sidebar-section">
-                <h3>Quick Categories</h3>
+                <h3>Campus Knowledge Hub</h3>
                 <div class="category-list">
-                    <button class="cat-btn" onclick="sendQuickPrompt('Tell me about Admissions')">
+                    <button class="cat-btn" onclick="sendQuickPrompt('Placement eligibility and company criteria')">
+                        <i class="fa-solid fa-briefcase"></i> <span>Placements Hub</span>
+                    </button>
+                    <button class="cat-btn" onclick="sendQuickPrompt('College admission process and dates')">
                         <i class="fa-solid fa-school"></i> <span>Admissions</span>
                     </button>
-                    <button class="cat-btn" onclick="sendQuickPrompt('Placement statistics and companies')">
-                        <i class="fa-solid fa-briefcase"></i> <span>Placements</span>
-                    </button>
-                    <button class="cat-btn" onclick="sendQuickPrompt('Show me Academic info and syllabus')">
-                        <i class="fa-solid fa-book-open"></i> <span>Academics</span>
-                    </button>
-                    <button class="cat-btn" onclick="sendQuickPrompt('Fee structure and scholarships')">
+                    <button class="cat-btn" onclick="sendQuickPrompt('Fee structure, deadlines and scholarships')">
                         <i class="fa-solid fa-indian-rupee-sign"></i> <span>Fees & Aid</span>
                     </button>
-                    <button class="cat-btn" onclick="sendQuickPrompt('Hostel facilities and mess rules')">
-                        <i class="fa-solid fa-hotel"></i> <span>Hostel & Life</span>
+                    <button class="cat-btn" onclick="sendQuickPrompt('Exam schedule, syllabus and attendance')">
+                        <i class="fa-solid fa-book-open"></i> <span>Academics</span>
                     </button>
-                    <button class="cat-btn" onclick="sendQuickPrompt('Career path and resume guidance')">
-                        <i class="fa-solid fa-compass"></i> <span>Career Hub</span>
+                    <button class="cat-btn" onclick="sendQuickPrompt('Hostel facilities, mess food and timings')">
+                        <i class="fa-solid fa-hotel"></i> <span>Hostel & Campus</span>
                     </button>
-                    <button class="cat-btn" onclick="sendQuickPrompt('Upcoming events and fests')">
-                        <i class="fa-solid fa-calendar-check"></i> <span>Events & Fest</span>
+                    <button class="cat-btn" onclick="sendQuickPrompt('Career roadmaps, resume and skills guidance')">
+                        <i class="fa-solid fa-compass"></i> <span>Career Guidance</span>
                     </button>
-                    <button class="cat-btn" onclick="sendQuickPrompt('Recent circulars and notifications')">
+                    <button class="cat-btn" onclick="sendQuickPrompt('College events, technical and cultural fests')">
+                        <i class="fa-solid fa-calendar-check"></i> <span>Events & Fests</span>
+                    </button>
+                    <button class="cat-btn" onclick="sendQuickPrompt('Recent circulars and notices')">
                         <i class="fa-solid fa-bullhorn"></i> <span>Notices</span>
+                    </button>
+                    <button class="cat-btn" onclick="sendQuickPrompt('Student services, bonafide and certificates')">
+                        <i class="fa-solid fa-id-card"></i> <span>Student Services</span>
                     </button>
                 </div>
             </div>
 
-            <!-- College Emergency / Handoff -->
+            <!-- Human Handoff / Desk -->
             <div class="support-card">
                 <div class="support-icon"><i class="fa-solid fa-headset"></i></div>
                 <div>
-                    <h4>Need Human Help?</h4>
-                    <p>Connect to the Administrative Desk</p>
+                    <h4>Official Helpdesk</h4>
+                    <p>Admissions, Admin & Exams</p>
                     <button class="btn-support" onclick="triggerHandoff()"><i class="fa-solid fa-phone"></i> Contact Office</button>
                 </div>
             </div>
@@ -77,55 +80,55 @@
                     <div class="status-indicator">
                         <span class="online-dot"></span>
                         <div>
-                            <h3>College AI Assistant</h3>
-                            <span class="subtext">24/7 Smart Student Support</span>
+                            <h3>CampusAI Assistant</h3>
+                            <span class="subtext">Active • Ready to answer anything</span>
                         </div>
                     </div>
                 </div>
 
                 <div class="header-actions">
-                    <!-- Language Selector (English / Telugu) -->
+                    <!-- 4-Language Selector -->
                     <div class="lang-selector">
                         <i class="fa-solid fa-language"></i>
                         <select id="langSelect" onchange="changeLanguage()">
                             <option value="en">English</option>
                             <option value="te">తెలుగు (Telugu)</option>
+                            <option value="hi">हिन्दी (Hindi)</option>
+                            <option value="ta">தமிழ் (Tamil)</option>
                         </select>
                     </div>
 
-                    <!-- Clear Chat -->
-                    <button class="icon-btn" title="Clear Conversation" onclick="clearChat()">
+                    <!-- Reset Chat -->
+                    <button class="icon-btn" title="Reset Conversation" onclick="clearChat()">
                         <i class="fa-solid fa-rotate-right"></i>
                     </button>
                 </div>
             </header>
 
-            <!-- Messages Window -->
-            <div class="chat-body" id="chatBody">
-                <!-- Bot Welcome Message will be loaded here -->
-            </div>
+            <!-- Chat Window -->
+            <div class="chat-body" id="chatBody"></div>
 
-            <!-- Suggestions Chip Carousel -->
+            <!-- Quick Action Chips -->
             <div class="quick-chips" id="quickChips">
-                <button class="chip" onclick="sendQuickPrompt('TCS placement criteria')">💼 TCS Eligibility</button>
-                <button class="chip" onclick="sendQuickPrompt('Admission last date')">📅 Admission Deadlines</button>
-                <button class="chip" onclick="sendQuickPrompt('Hostel fee structure')">🏠 Hostel Fee</button>
-                <button class="chip" onclick="sendQuickPrompt('How to get Bonafide Certificate?')">📝 Bonafide Form</button>
-                <button class="chip" onclick="sendQuickPrompt('Scholarship eligibility')">💰 Scholarships</button>
+                <button class="chip" onclick="sendQuickPrompt('Placement eligibility and companies')">💼 Placement Cutoffs</button>
+                <button class="chip" onclick="sendQuickPrompt('Amazon placement requirements')">📦 Amazon Criteria</button>
+                <button class="chip" onclick="sendQuickPrompt('TCS and Infosys criteria')">💻 TCS & Infosys</button>
+                <button class="chip" onclick="sendQuickPrompt('Admission last date and documents')">📅 Admissions</button>
+                <button class="chip" onclick="sendQuickPrompt('How can I get a Bonafide Certificate?')">📝 Bonafide Form</button>
+                <button class="chip" onclick="sendQuickPrompt('Tell me a campus joke')">😄 Tell a Joke</button>
             </div>
 
-            <!-- Input Area -->
+            <!-- Input Bar -->
             <footer class="chat-footer">
                 <div class="input-wrapper">
-                    <!-- Document Mock Upload Button -->
-                    <label class="file-upload-btn" title="Upload circular / syllabus document">
+                    <label class="file-upload-btn" title="Upload circular or document">
                         <i class="fa-solid fa-paperclip"></i>
                         <input type="file" id="docUpload" accept=".pdf,.doc,.txt" onchange="handleFileUpload(event)">
                     </label>
 
-                    <input type="text" id="userInput" placeholder="Ask anything about admissions, placements, exams..." autocomplete="off">
+                    <input type="text" id="userInput" placeholder="Ask anything about cutoffs, campus, exams, life..." autocomplete="off">
                     
-                    <button id="micBtn" class="action-btn" title="Voice Input (Speech-to-text)" onclick="toggleSpeechRecognition()">
+                    <button id="micBtn" class="action-btn" title="Voice Input" onclick="toggleSpeechRecognition()">
                         <i class="fa-solid fa-microphone"></i>
                     </button>
 
