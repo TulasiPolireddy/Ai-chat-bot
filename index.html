@@ -3,17 +3,17 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>CampusAI | 4-Language Smart College Assistant</title>
+    <title>CampusAI | Smart Multilingual College Assistant</title>
     <!-- Google Fonts -->
-    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-    <!-- Font Awesome Icons -->
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <!-- Font Awesome 6 Icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
     <div class="chat-app-container">
-        <!-- Sidebar Navigation -->
+        <!-- Sidebar Navigation Drawer -->
         <aside class="chat-sidebar" id="chatSidebar">
             <div class="brand">
                 <div class="brand-logo">
@@ -21,12 +21,12 @@
                 </div>
                 <div>
                     <h2>CampusAI</h2>
-                    <span class="badge">Multilingual 4-in-1</span>
+                    <span class="badge">4-Language AI Hub</span>
                 </div>
             </div>
 
             <div class="sidebar-section">
-                <h3>Campus Knowledge Hub</h3>
+                <h3>Campus Directory</h3>
                 <div class="category-list">
                     <button class="cat-btn" onclick="sendQuickPrompt('Placement eligibility and company criteria')">
                         <i class="fa-solid fa-briefcase"></i> <span>Placements Hub</span>
@@ -37,11 +37,11 @@
                     <button class="cat-btn" onclick="sendQuickPrompt('Fee structure, deadlines and scholarships')">
                         <i class="fa-solid fa-indian-rupee-sign"></i> <span>Fees & Aid</span>
                     </button>
-                    <button class="cat-btn" onclick="sendQuickPrompt('Exam schedule, syllabus and attendance')">
-                        <i class="fa-solid fa-book-open"></i> <span>Academics</span>
-                    </button>
                     <button class="cat-btn" onclick="sendQuickPrompt('Hostel facilities, mess food and timings')">
                         <i class="fa-solid fa-hotel"></i> <span>Hostel & Campus</span>
+                    </button>
+                    <button class="cat-btn" onclick="sendQuickPrompt('Exam schedule, syllabus and attendance')">
+                        <i class="fa-solid fa-book-open"></i> <span>Academics</span>
                     </button>
                     <button class="cat-btn" onclick="sendQuickPrompt('Career roadmaps, resume and skills guidance')">
                         <i class="fa-solid fa-compass"></i> <span>Career Guidance</span>
@@ -58,12 +58,12 @@
                 </div>
             </div>
 
-            <!-- Human Handoff / Desk -->
+            <!-- College Emergency / Official Desk -->
             <div class="support-card">
                 <div class="support-icon"><i class="fa-solid fa-headset"></i></div>
                 <div>
                     <h4>Official Helpdesk</h4>
-                    <p>Admissions, Admin & Exams</p>
+                    <p>Direct staff connection</p>
                     <button class="btn-support" onclick="triggerHandoff()"><i class="fa-solid fa-phone"></i> Contact Office</button>
                 </div>
             </div>
@@ -81,7 +81,7 @@
                         <span class="online-dot"></span>
                         <div>
                             <h3>CampusAI Assistant</h3>
-                            <span class="subtext">Active • Ready to answer anything</span>
+                            <span class="subtext">Active • Always ready to help</span>
                         </div>
                     </div>
                 </div>
@@ -98,40 +98,43 @@
                         </select>
                     </div>
 
-                    <!-- Reset Chat -->
+                    <!-- Clear Chat -->
                     <button class="icon-btn" title="Reset Conversation" onclick="clearChat()">
                         <i class="fa-solid fa-rotate-right"></i>
                     </button>
                 </div>
             </header>
 
-            <!-- Chat Window -->
+            <!-- Chat Message Window -->
             <div class="chat-body" id="chatBody"></div>
 
             <!-- Quick Action Chips -->
             <div class="quick-chips" id="quickChips">
-                <button class="chip" onclick="sendQuickPrompt('Placement eligibility and companies')">💼 Placement Cutoffs</button>
-                <button class="chip" onclick="sendQuickPrompt('Amazon placement requirements')">📦 Amazon Criteria</button>
-                <button class="chip" onclick="sendQuickPrompt('TCS and Infosys criteria')">💻 TCS & Infosys</button>
-                <button class="chip" onclick="sendQuickPrompt('Admission last date and documents')">📅 Admissions</button>
+                <button class="chip" onclick="sendQuickPrompt('Placement eligibility and company criteria')">💼 Placement Cutoffs</button>
+                <button class="chip" onclick="sendQuickPrompt('Fee structure, deadlines and scholarships')">💰 Fee Breakdown</button>
+                <button class="chip" onclick="sendQuickPrompt('Hostel facilities, mess food and timings')">🏠 Hostel & Campus</button>
+                <button class="chip" onclick="sendQuickPrompt('Admission process and dates')">📅 Admissions</button>
                 <button class="chip" onclick="sendQuickPrompt('How can I get a Bonafide Certificate?')">📝 Bonafide Form</button>
                 <button class="chip" onclick="sendQuickPrompt('Tell me a campus joke')">😄 Tell a Joke</button>
             </div>
 
-            <!-- Input Bar -->
+            <!-- Chat Footer Input -->
             <footer class="chat-footer">
                 <div class="input-wrapper">
+                    <!-- File Upload Button -->
                     <label class="file-upload-btn" title="Upload circular or document">
                         <i class="fa-solid fa-paperclip"></i>
                         <input type="file" id="docUpload" accept=".pdf,.doc,.txt" onchange="handleFileUpload(event)">
                     </label>
 
-                    <input type="text" id="userInput" placeholder="Ask anything about cutoffs, campus, exams, life..." autocomplete="off">
+                    <input type="text" id="userInput" placeholder="Ask anything about fees, hostel, placements, cutoffs..." autocomplete="off">
                     
+                    <!-- Voice Mic Input -->
                     <button id="micBtn" class="action-btn" title="Voice Input" onclick="toggleSpeechRecognition()">
                         <i class="fa-solid fa-microphone"></i>
                     </button>
 
+                    <!-- Send Button -->
                     <button id="sendBtn" class="send-btn" onclick="sendMessage()">
                         <i class="fa-solid fa-paper-plane"></i>
                     </button>
