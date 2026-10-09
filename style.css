@@ -1,8 +1,8 @@
 :root {
     --bg-main: #0b0f19;
     --bg-secondary: #111827;
-    --bg-glass: rgba(17, 24, 39, 0.90);
-    --border-color: rgba(255, 255, 255, 0.08);
+    --bg-glass: rgba(17, 24, 39, 0.92);
+    --border-color: rgba(255, 255, 255, 0.10);
     --accent-primary: #6366f1;
     --accent-secondary: #8b5cf6;
     --accent-gradient: linear-gradient(135deg, #6366f1 0%, #a855f7 100%);
@@ -11,7 +11,7 @@
     --text-primary: #f8fafc;
     --text-muted: #94a3b8;
     --success: #10b981;
-    --card-bg: rgba(255, 255, 255, 0.04);
+    --card-bg: rgba(255, 255, 255, 0.05);
     --radius-lg: 16px;
     --radius-md: 10px;
     --shadow: 0 10px 30px -10px rgba(0, 0, 0, 0.5);
@@ -35,7 +35,7 @@ body {
     padding: 12px;
 }
 
-/* Chat Container */
+/* Chat Shell */
 .chat-app-container {
     display: flex;
     width: 100%;
@@ -188,7 +188,7 @@ body {
     background: rgba(11, 15, 25, 0.6);
 }
 
-/* Chat Header */
+/* Header */
 .chat-header {
     height: 68px;
     border-bottom: 1px solid var(--border-color);
@@ -299,7 +299,7 @@ body {
 .message {
     display: flex;
     gap: 12px;
-    max-width: 88%;
+    max-width: 90%;
     animation: fadeIn 0.3s ease;
 }
 
@@ -342,7 +342,7 @@ body {
     font-size: 0.92rem;
     line-height: 1.6;
     border: 1px solid var(--border-color);
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
 }
 
 .user .msg-content {
@@ -361,86 +361,43 @@ body {
     text-align: right;
 }
 
-/* Clear Fee Structure & Card Grids */
-.detail-card-grid {
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
-    margin-top: 10px;
+/* High-Contrast Clear Content Styles */
+.fee-block {
+    background: rgba(255, 255, 255, 0.04);
+    border-left: 4px solid var(--accent-primary);
+    border-radius: 6px;
+    padding: 10px 14px;
+    margin: 8px 0;
 }
 
-.detail-card {
-    background: var(--card-bg);
-    border: 1px solid var(--border-color);
-    padding: 12px 14px;
-    border-radius: 8px;
-}
-
-.detail-card-header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
+.fee-block-title {
     font-weight: 700;
     color: #a5b4fc;
-    margin-bottom: 6px;
+    margin-bottom: 4px;
+    font-size: 0.9rem;
 }
 
-.tag-badge {
-    background: rgba(99, 102, 241, 0.2);
-    color: #a5b4fc;
-    border: 1px solid rgba(99, 102, 241, 0.35);
-    padding: 3px 10px;
-    border-radius: 12px;
-    font-size: 0.8rem;
-    font-weight: 700;
-}
-
-.tag-green {
-    background: rgba(16, 185, 129, 0.15);
-    color: #34d399;
+.notice-box {
+    background: rgba(16, 185, 129, 0.1);
     border: 1px solid rgba(16, 185, 129, 0.3);
-}
-
-.tag-cyan {
-    background: rgba(56, 189, 248, 0.15);
-    color: #38bdf8;
-    border: 1px solid rgba(56, 189, 248, 0.3);
-}
-
-.info-alert-box {
-    background: rgba(245, 158, 11, 0.08);
-    border: 1px solid rgba(245, 158, 11, 0.25);
     border-radius: 8px;
     padding: 10px 14px;
-    font-size: 0.83rem;
-    line-height: 1.55;
-    color: #fef3c7;
     margin-top: 8px;
-}
-
-.success-alert-box {
-    background: rgba(16, 185, 129, 0.08);
-    border: 1px solid rgba(16, 185, 129, 0.25);
-    border-radius: 8px;
-    padding: 10px 14px;
-    font-size: 0.83rem;
-    line-height: 1.55;
     color: #d1fae5;
-    margin-top: 8px;
+    font-size: 0.84rem;
 }
 
-.danger-alert-box {
-    background: rgba(239, 68, 68, 0.08);
-    border: 1px solid rgba(239, 68, 68, 0.25);
+.warning-box {
+    background: rgba(245, 158, 11, 0.1);
+    border: 1px solid rgba(245, 158, 11, 0.3);
     border-radius: 8px;
     padding: 10px 14px;
-    font-size: 0.83rem;
-    line-height: 1.55;
-    color: #fecaca;
     margin-top: 8px;
+    color: #fef3c7;
+    font-size: 0.84rem;
 }
 
-/* Button Grids */
+/* Interactive Grids */
 .card-action-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
