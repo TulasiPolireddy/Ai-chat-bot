@@ -1,5 +1,5 @@
 /**
- * CampusAI - Master Knowledge Base & Intent Engine
+ * CampusAI - Master Knowledge Base & Conversational AI Engine
  * Languages: English (en), Telugu (te), Hindi (hi), Tamil (ta)
  */
 
@@ -7,159 +7,127 @@ let currentLang = 'en';
 
 // Master College Knowledge Base
 const knowledgeBase = {
-    // 1. CLEAR & COMPLETE FEES & SCHOLARSHIPS DETAILS
+    // 1. COMPLETE & TRANSPARENT FEE STRUCTURE
     fees: {
         keywords: [
             'fee', 'fees', 'tuition', 'scholarship', 'scholarships', 'payment', 
             'due', 'dues', 'jvd', 'epass', 'cost', 'money', 'btech fee',
-            'exam fee', 'bus fee', 'late fee', 'how to pay', 'installment', 'financial aid'
+            'exam fee', 'bus fee', 'late fee', 'how to pay', 'installment', 
+            'financial aid', 'fee structure', 'fee details', 'hostel fee'
         ],
-        en: `💰 <strong>College Fee Structure & Scholarship Details:</strong><br><br>
+        en: `💰 <strong>Complete College Fee Structure & Scholarship Details:</strong><br><br>
         
-        <div class="detail-card-grid">
-            <div class="detail-card">
-                <div class="detail-card-header">
-                    <span>1. Annual Tuition Fees</span>
-                    <span class="tag-badge">Course-Wise</span>
-                </div>
-                • <strong>B.Tech (CSE, AI & DS, IT):</strong> ₹1,15,000 / year<br>
-                • <strong>B.Tech (ECE, EEE, Mech, Civil):</strong> ₹95,000 / year<br>
-                • <strong>M.Tech (All Specializations):</strong> ₹70,000 / year<br>
-                • <strong>MBA / MCA Programs:</strong> ₹65,000 / year
-            </div>
+        <div class="fee-block">
+            <div class="fee-block-title">🎓 1. Annual Tuition Fees (Branch-Wise)</div>
+            • <strong>B.Tech (CSE, AI & DS, IT):</strong> ₹1,15,000 / year<br>
+            • <strong>B.Tech (ECE, EEE, Mech, Civil):</strong> ₹95,000 / year<br>
+            • <strong>M.Tech (All Specializations):</strong> ₹70,000 / year<br>
+            • <strong>MBA / MCA Programs:</strong> ₹65,000 / year
+        </div>
 
-            <div class="detail-card">
-                <div class="detail-card-header">
-                    <span>2. Hostel, Transport & Other Fees</span>
-                    <span class="tag-badge tag-cyan">Campus Living</span>
-                </div>
-                • <strong>Hostel & Mess (Non-AC):</strong> ₹65,000 / year (4 meals/day + WiFi + Laundry)<br>
-                • <strong>Hostel & Mess (AC 2-Sharing):</strong> ₹85,000 / year<br>
-                • <strong>College Bus / Transport:</strong> ₹22,000 – ₹32,000 / year (route distance based)<br>
-                • <strong>Semester Exam Fee:</strong> ₹1,500 / semester<br>
-                • <strong>Caution Deposit:</strong> ₹5,000 (One-time, 100% refundable at course end)
-            </div>
+        <div class="fee-block">
+            <div class="fee-block-title">🏠 2. Hostel, Mess & Transport Charges</div>
+            • <strong>Hostel & Mess (Non-AC):</strong> ₹65,000 / year (Includes 4 meals/day, WiFi, Laundry)<br>
+            • <strong>Hostel & Mess (AC 2-Sharing):</strong> ₹85,000 / year<br>
+            • <strong>College Bus / Transportation:</strong> ₹22,000 – ₹32,000 / year (distance-based)<br>
+            • <strong>Semester Exam Fee:</strong> ₹1,500 / semester<br>
+            • <strong>Caution Deposit:</strong> ₹5,000 (One-time, 100% refundable after graduation)
+        </div>
 
-            <div class="info-alert-box">
-                📅 <strong>Payment Deadlines & Policies:</strong><br>
-                • <strong>Odd Semesters:</strong> Due on or before <strong>August 15</strong><br>
-                • <strong>Even Semesters:</strong> Due on or before <strong>January 20</strong><br>
-                • <strong>Late Fine:</strong> ₹500 for first 10 days; ₹1,000 thereafter.<br>
-                • <strong>Installment Option:</strong> Tuition can be paid in <strong>2 equal installments</strong> with Dean's approval.
-            </div>
+        <div class="warning-box">
+            📅 <strong>Payment Deadlines & Fine Policy:</strong><br>
+            • <strong>Odd Semesters:</strong> Due on or before <strong>August 15</strong><br>
+            • <strong>Even Semesters:</strong> Due on or before <strong>January 20</strong><br>
+            • <strong>Late Fine:</strong> ₹500 for first 10 days delay; ₹1,000 thereafter.<br>
+            • <strong>Installment Option:</strong> Tuition can be paid in <strong>2 equal installments</strong> with Dean's permission.
+        </div>
 
-            <div class="success-alert-box">
-                🎓 <strong>Scholarships & Financial Aid:</strong><br>
-                • <strong>Government Schemes:</strong> 100% full tuition fee reimbursement through State ePASS / Jagananna Vidya Deevena (JVD) for eligible SC/ST/BC/EWS students.<br>
-                • <strong>Merit Scholarship:</strong> 25% tuition fee waiver for semester rankers (CGPA > 9.5).<br>
-                • <strong>Sports Concession:</strong> Up to 30% concession for national/state level players.
-            </div>
+        <div class="notice-box">
+            🏆 <strong>Scholarships & Financial Aid:</strong><br>
+            • <strong>Government Schemes:</strong> 100% tuition reimbursement via State ePASS / Jagananna Vidya Deevena (JVD) for eligible SC/ST/BC/EWS students.<br>
+            • <strong>Merit Scholarship:</strong> 25% tuition fee waiver for semester toppers with CGPA > 9.5.<br>
+            • <strong>Sports / Special Quota:</strong> Up to 30% concession for state/national players.
+        </div>
 
-            <div class="detail-card">
-                <div class="detail-card-header">
-                    <span>3. How to Pay Online / Offline</span>
-                    <span class="tag-badge tag-green">Payment Modes</span>
-                </div>
-                • <strong>Online:</strong> Log in to the <em>Student ERP Portal</em> &rarr; <em>Fee Payment</em> &rarr; Pay via UPI, NetBanking, Debit/Credit Card.<br>
-                • <strong>Net Banking:</strong> Via <em>SBI Collect</em> (Select State &rarr; Educational Institutions &rarr; College Name).<br>
-                • <strong>Offline:</strong> Demand Draft (DD) favoring <em>"The Principal"</em> payable at the campus bank counter.
-            </div>
+        <div class="fee-block" style="margin-top:8px;">
+            <div class="fee-block-title">💳 3. How to Pay</div>
+            • <strong>Online:</strong> Student ERP Portal &rarr; Fee Payment (UPI / Cards / Net Banking)<br>
+            • <strong>SBI Collect:</strong> Educational Institutions &rarr; College Name &rarr; Roll Number<br>
+            • <strong>Offline:</strong> Demand Draft (DD) favoring <em>"The Principal"</em> at campus bank.
         </div>`,
 
-        te: `💰 <strong>పూర్తి ఫీజు వివరాలు మరియు స్కాలర్‌షిప్‌లు (Fees & Scholarships):</strong><br><br>
+        te: `💰 <strong>పూర్తి ఫీజు వివరాలు మరియు స్కాలర్‌షిప్‌లు (Fee Structure):</strong><br><br>
         
-        <div class="detail-card-grid">
-            <div class="detail-card">
-                <div class="detail-card-header">
-                    <span>1. కోర్సుల వారీగా వార్షిక ట్యూషన్ ఫీజు</span>
-                    <span class="tag-badge">Tuition Fee</span>
-                </div>
-                • <strong>B.Tech (CSE, AI&DS, IT):</strong> ₹1,15,000 / ఏటా<br>
-                • <strong>B.Tech (ECE, Mech, Civil):</strong> ₹95,000 / ఏటా<br>
-                • <strong>M.Tech:</strong> ₹70,000 / ఏటా | <strong>MBA / MCA:</strong> ₹65,000 / ఏటా
-            </div>
+        <div class="fee-block">
+            <div class="fee-block-title">🎓 1. వార్షిక ట్యూషన్ ఫీజు (సంవత్సరానికి)</div>
+            • <strong>B.Tech (CSE, AI&DS, IT):</strong> ₹1,15,000 / ఏటా<br>
+            • <strong>B.Tech (ECE, Mech, Civil):</strong> ₹95,000 / ఏటా<br>
+            • <strong>M.Tech:</strong> ₹70,000 / ఏటా | <strong>MBA / MCA:</strong> ₹65,000 / ఏటా
+        </div>
 
-            <div class="detail-card">
-                <div class="detail-card-header">
-                    <span>2. హాస్టల్ మరియు ఇతర ఖర్చులు</span>
-                    <span class="tag-badge tag-cyan">Campus Fees</span>
-                </div>
-                • <strong>హాస్టల్ & మెస్:</strong> ₹65,000 / ఏటా (భోజనం, వైఫై సౌకర్యాలతో)<br>
-                • <strong>కాలేజ్ బస్సు:</strong> ₹22,000 – ₹32,000 / ఏటా (దూరాన్ని బట్టి)<br>
-                • <strong>ఎగ్జామ్ ఫీజు:</strong> ₹1,500 / సెమిస్టర్ | <strong>కాషన్ డిపాజిట్:</strong> ₹5,000 (రీఫండబుల్)
-            </div>
+        <div class="fee-block">
+            <div class="fee-block-title">🏠 2. హాస్టల్ మరియు ఇతర ఖర్చులు</div>
+            • <strong>హాస్టల్ & మెస్ (Non-AC):</strong> ₹65,000 / ఏటా (భోజనం, వైఫై, లాండ్రీతో కలిపి)<br>
+            • <strong>హాస్టల్ (AC 2-షేరింగ్):</strong> ₹85,000 / ఏటా<br>
+            • <strong>కాలేజ్ బస్సు:</strong> ₹22,000 – ₹32,000 / ఏటా (దూరాన్ని బట్టి)<br>
+            • <strong>ఎగ్జామ్ ఫీజు:</strong> ₹1,500 / సెమిస్టర్ | <strong>కాషన్ డిపాజిట్:</strong> ₹5,000 (రీఫండబుల్)
+        </div>
 
-            <div class="info-alert-box">
-                📅 <strong>చెల్లింపు గడువు:</strong> ఆడ్ సెమిస్టర్: ఆగస్టు 15 | ఈవెన్ సెమిస్టర్: జనవరి 20. (ఆలస్యమైతే ₹500 ఫైన్). 2 విడతల్లో చెల్లించే సదుపాయం కలదు.
-            </div>
+        <div class="warning-box">
+            📅 <strong>చెల్లింపు గడువు:</strong> ఆడ్ సెమిస్టర్: ఆగస్టు 15 | ఈవెన్ సెమిస్టర్: జనవరి 20. (ఆలస్యమైతే ₹500 ఫైన్). 2 విడతల్లో చెల్లించే సదుపాయం కలదు.
+        </div>
 
-            <div class="success-alert-box">
-                🎓 <strong>స్కాలర్‌షిప్‌లు:</strong> అర్హులైన SC/ST/BC/EWS విద్యార్థులకు ప్రభుత్వం ద్వారా ePASS లేదా JVD ద్వారా 100% పూర్తి ఫీజు రీయింబర్స్‌మెంట్ లభిస్తుంది. సెమిస్టర్ టాపర్లకు 25% మెరిట్ స్కాలర్‌షిప్ ఉంటుంది.
-            </div>
+        <div class="notice-box">
+            🏆 <strong>స్కాలర్‌షిప్‌లు:</strong> అర్హులైన SC/ST/BC/EWS విద్యార్థులకు ePASS లేదా JVD ద్వారా 100% పూర్తి ఫీజు రీయింబర్స్‌మెంట్ లభిస్తుంది. 9.5 CGPA సాధించిన టాపర్లకు 25% మెరిట్ స్కాలర్‌షిప్ ఉంటుంది.
         </div>`,
 
         hi: `💰 <strong>कॉलेज फीस संरचना और छात्रवृत्ति (Fees & Scholarships):</strong><br><br>
         
-        <div class="detail-card-grid">
-            <div class="detail-card">
-                <div class="detail-card-header">
-                    <span>1. वार्षिक ट्यूशन फीस (कोर्स अनुसार)</span>
-                    <span class="tag-badge">Tuition Fee</span>
-                </div>
-                • <strong>B.Tech (CSE, AI & DS, IT):</strong> ₹1,15,000 / वर्ष<br>
-                • <strong>B.Tech (ECE, Mech, Civil):</strong> ₹95,000 / वर्ष<br>
-                • <strong>M.Tech:</strong> ₹70,000 / वर्ष | <strong>MBA / MCA:</strong> ₹65,000 / वर्ष
-            </div>
+        <div class="fee-block">
+            <div class="fee-block-title">🎓 1. वार्षिक ट्यूशन फीस (कोर्स अनुसार)</div>
+            • <strong>B.Tech (CSE, AI & DS, IT):</strong> ₹1,15,000 / वर्ष<br>
+            • <strong>B.Tech (ECE, Mech, Civil):</strong> ₹95,000 / वर्ष<br>
+            • <strong>M.Tech:</strong> ₹70,000 / वर्ष | <strong>MBA / MCA:</strong> ₹65,000 / वर्ष
+        </div>
 
-            <div class="detail-card">
-                <div class="detail-card-header">
-                    <span>2. हॉस्टल, ट्रांसपोर्ट एवं अन्य शुल्क</span>
-                    <span class="tag-badge tag-cyan">Hostel & Bus</span>
-                </div>
-                • <strong>हॉस्टल और मेस:</strong> ₹65,000 / वर्ष (भोजन और वाई-फाई सहित)<br>
-                • <strong>कॉलेज बस शुल्क:</strong> ₹22,000 – ₹32,000 / वर्ष<br>
-                • <strong>सेमेस्टर परीक्षा शुल्क:</strong> ₹1,500 / सेमेस्टर
-            </div>
+        <div class="fee-block">
+            <div class="fee-block-title">🏠 2. हॉस्टल, ट्रांसपोर्ट एवं अन्य शुल्क</div>
+            • <strong>हॉस्टल और मेस (Non-AC):</strong> ₹65,000 / वर्ष (4 समय का भोजन + वाई-फाई)<br>
+            • <strong>हॉस्टल (AC):</strong> ₹85,000 / वर्ष<br>
+            • <strong>कॉलेज बस शुल्क:</strong> ₹22,000 – ₹32,000 / वर्ष<br>
+            • <strong>सेमेस्टर परीक्षा शुल्क:</strong> ₹1,500 / सेमेस्टर | <strong>कॉशन मनी:</strong> ₹5,000 (रिफंडेबल)
+        </div>
 
-            <div class="info-alert-box">
-                📅 <strong>अंतिम तिथि:</strong> विषम सेमेस्टर: 15 अगस्त | सम सेमेस्टर: 20 जनवरी। फीस 2 किस्तों (Installments) में भी दी जा सकती है।
-            </div>
+        <div class="warning-box">
+            📅 <strong>अंतिम तिथि:</strong> विषम सेमेस्टर: 15 अगस्त | सम सेमेस्टर: 20 जनवरी। फीस 2 किस्तों (Installments) में भी दी जा सकती है।
+        </div>
 
-            <div class="success-alert-box">
-                🎓 <strong>छात्रवृत्ति (Scholarships):</strong> पात्र SC/ST/OBC/EWS छात्रों के लिए सरकारी ePASS योजना द्वारा 100% फीस प्रतिपूर्ति (Reimbursement)। 9.5 CGPA वाले टॉपर्स को 25% मेरिट छूट।
-            </div>
+        <div class="notice-box">
+            🏆 <strong>छात्रवृत्ति (Scholarships):</strong> पात्र छात्रों के लिए सरकारी ePASS योजना द्वारा 100% फीस प्रतिपूर्ति (Reimbursement)। टॉपर्स को 25% मेरिट छूट।
         </div>`,
 
         ta: `💰 <strong>முழு கல்விக் கட்டணம் மற்றும் உதவித்தொகை (Fees & Scholarships):</strong><br><br>
         
-        <div class="detail-card-grid">
-            <div class="detail-card">
-                <div class="detail-card-header">
-                    <span>1. ஆண்டுக் கட்டணம் (துறை வாரியாக)</span>
-                    <span class="tag-badge">Tuition Fee</span>
-                </div>
-                • <strong>B.Tech (CSE, AI & DS, IT):</strong> ₹1,15,000 / ஆண்டு<br>
-                • <strong>B.Tech (ECE, Mech, Civil):</strong> ₹95,000 / ஆண்டு<br>
-                • <strong>M.Tech:</strong> ₹70,000 / ஆண்டு | <strong>MBA / MCA:</strong> ₹65,000 / ஆண்டு
-            </div>
+        <div class="fee-block">
+            <div class="fee-block-title">🎓 1. ஆண்டுக் கட்டணம் (துறை வாரியாக)</div>
+            • <strong>B.Tech (CSE, AI & DS, IT):</strong> ₹1,15,000 / ஆண்டு<br>
+            • <strong>B.Tech (ECE, Mech, Civil):</strong> ₹95,000 / ஆண்டு<br>
+            • <strong>M.Tech:</strong> ₹70,000 / ஆண்டு | <strong>MBA / MCA:</strong> ₹65,000 / ஆண்டு
+        </div>
 
-            <div class="detail-card">
-                <div class="detail-card-header">
-                    <span>2. விடுதி மற்றும் பிற கட்டணங்கள்</span>
-                    <span class="tag-badge tag-cyan">Campus Living</span>
-                </div>
-                • <strong>விடுதி மற்றும் உணவு:</strong> ₹65,000 / ஆண்டு<br>
-                • <strong>பேருந்துக் கட்டணம்:</strong> ₹22,000 – ₹32,000 / ஆண்டு<br>
-                • <strong>பருவத் தேர்வு கட்டணம்:</strong> ₹1,500 / பருவம்
-            </div>
+        <div class="fee-block">
+            <div class="fee-block-title">🏠 2. விடுதி மற்றும் பிற கட்டணங்கள்</div>
+            • <strong>விடுதி மற்றும் உணவு:</strong> ₹65,000 / ஆண்டு (உணவு மற்றும் வைஃபை உட்பட)<br>
+            • <strong>பேருந்துக் கட்டணம்:</strong> ₹22,000 – ₹32,000 / ஆண்டு<br>
+            • <strong>பருவத் தேர்வு கட்டணம்:</strong> ₹1,500 / பருவம்
+        </div>
 
-            <div class="success-alert-box">
-                🎓 <strong>உதவித்தொகை:</strong> தகுதியுள்ள மாணவர்களுக்கு அரசு கல்வி உதவித்தொகை மூலம் முழு கட்டண விலக்கு மற்றும் 9.5 CGPA எடுக்கும் மாணவர்களுக்கு 25% கட்டணச் சலுகை உண்டு.
-            </div>
+        <div class="notice-box">
+            🏆 <strong>உதவித்தொகை:</strong> தகுதியுள்ள மாணவர்களுக்கு அரசு கல்வி உதவித்தொகை மூலம் முழு கட்டண விலக்கு மற்றும் 9.5 CGPA எடுக்கும் மாணவர்களுக்கு 25% கட்டணச் சலுகை உண்டு.
         </div>`
     },
 
-    // 2. PLACEMENTS HUB: 5 Major Companies
+    // 2. PLACEMENTS: 5 Major Companies
     placements: {
         keywords: [
             'placement', 'placements', 'company', 'companies', 'job', 'jobs', 'salary', 
@@ -167,125 +135,66 @@ const knowledgeBase = {
             'placement criteria', 'recruitment', 'rounds', 'hiring'
         ],
         en: `💼 <strong>Campus Placement Eligibility & Top Recruiters:</strong><br><br>
-        <strong>General Campus Eligibility:</strong> Minimum <strong>60% or 6.5 CGPA</strong> aggregate with <strong>0 active backlogs</strong>.<br><br>
-        <div class="detail-card-grid">
-            <div class="detail-card">
-                <div class="detail-card-header"><span>1. Amazon (SDE / Cloud)</span> <span class="tag-badge tag-green">₹28 - 45 LPA</span></div>
-                • <strong>Criteria:</strong> 7.0+ CGPA, 0 backlogs, B.Tech (CSE/ECE/IT).<br>
-                • <strong>Rounds:</strong> Online Coding (DSA) &rarr; 3-4 Technical Rounds &rarr; Bar Raiser.
-            </div>
-            <div class="detail-card">
-                <div class="detail-card-header"><span>2. TCS (Ninja, Digital & Prime)</span> <span class="tag-badge tag-green">₹3.36 - 9.0 LPA</span></div>
-                • <strong>Criteria:</strong> 60% throughout in 10th, 12th & Degree. Max 1 academic gap.<br>
-                • <strong>Rounds:</strong> TCS NQT (Aptitude + Coding) &rarr; Tech & HR Interview.
-            </div>
-            <div class="detail-card">
-                <div class="detail-card-header"><span>3. Infosys (SE, DSE & Specialist)</span> <span class="tag-badge tag-green">₹3.6 - 9.5 LPA</span></div>
-                • <strong>Criteria:</strong> 65% or 6.8 CGPA throughout, no active backlogs.<br>
-                • <strong>Rounds:</strong> InfyTQ / Online Assessment &rarr; Technical Interview.
-            </div>
-            <div class="detail-card">
-                <div class="detail-card-header"><span>4. Wipro (Elite & Turbo)</span> <span class="tag-badge tag-green">₹3.5 - 6.5 LPA</span></div>
-                • <strong>Criteria:</strong> 60% aggregate. Max 1 active backlog permitted during registration.<br>
-                • <strong>Rounds:</strong> National Talent Hunt (Aptitude, Essay, Coding) &rarr; HR.
-            </div>
-            <div class="detail-card">
-                <div class="detail-card-header"><span>5. Cognizant (GenC & GenC Next)</span> <span class="tag-badge tag-green">₹4.0 - 6.75 LPA</span></div>
-                • <strong>Criteria:</strong> 60% or 6.0 CGPA, no pending backlogs at joining.<br>
-                • <strong>Rounds:</strong> Skill Assessment &rarr; Technical Discussion.
-            </div>
+        <strong>General Eligibility:</strong> Minimum <strong>60% or 6.5 CGPA</strong> aggregate with <strong>0 active backlogs</strong>.<br><br>
+        <div class="fee-block">
+            • <strong>1. Amazon:</strong> ₹28 - 45 LPA | 7.0+ CGPA | DSA Coding + 3 Tech Rounds.<br>
+            • <strong>2. TCS (Ninja & Prime):</strong> ₹3.36 - 9.0 LPA | 60% in 10th, 12th & B.Tech.<br>
+            • <strong>3. Infosys (SE & Specialist):</strong> ₹3.6 - 9.5 LPA | 65% aggregate.<br>
+            • <strong>4. Wipro (Elite & Turbo):</strong> ₹3.5 - 6.5 LPA | 60% aggregate.<br>
+            • <strong>5. Cognizant (GenC):</strong> ₹4.0 - 6.75 LPA | 60% aggregate.
         </div>`,
 
         te: `💼 <strong>క్యాంపస్ ప్లేస్‌మెంట్స్ & 5 ప్రముఖ కంపెనీల వివరాలు:</strong><br><br>
         <strong>సాధారణ అర్హత:</strong> 60% లేదా 6.5 CGPA, ఎలాంటి యాక్టివ్ బ్యాక్‌లాగ్‌లు ఉండకూడదు.<br><br>
-        <div class="detail-card-grid">
-            <div class="detail-card"><strong>1. Amazon:</strong> ₹28 - 45 LPA | 7.0+ CGPA | DSA కోడింగ్ రౌండ్లు</div>
-            <div class="detail-card"><strong>2. TCS:</strong> ₹3.36 - 9.0 LPA | 60% మార్కులు | TCS NQT పరీక్ష</div>
-            <div class="detail-card"><strong>3. Infosys:</strong> ₹3.6 - 9.5 LPA | 65% మార్కులు | ఆన్‌లైన్ అసెస్‌మెంట్</div>
-            <div class="detail-card"><strong>4. Wipro:</strong> ₹3.5 - 6.5 LPA | 60% మార్కులు | యాప్టిట్యూడ్ & కోడింగ్</div>
-            <div class="detail-card"><strong>5. Cognizant:</strong> ₹4.0 - 6.75 LPA | 60% మార్కులు | టెక్నికల్ అసెస్‌మెంట్</div>
-        </div>`,
+        • <strong>Amazon:</strong> ₹28 - 45 LPA (7.0+ CGPA)<br>
+        • <strong>TCS:</strong> ₹3.36 - 9.0 LPA (60% మార్కులు)<br>
+        • <strong>Infosys:</strong> ₹3.6 - 9.5 LPA (65% మార్కులు)<br>
+        • <strong>Wipro:</strong> ₹3.5 - 6.5 LPA (60% మార్కులు)<br>
+        • <strong>Cognizant:</strong> ₹4.0 - 6.75 LPA (60% మార్కులు)`,
 
         hi: `💼 <strong>कैंपस प्लेसमेंट पात्रता और 5 प्रमुख कंपनियाँ:</strong><br><br>
-        <strong>सामान्य पात्रता:</strong> न्यूनतम 60% या 6.5 CGPA, 0 बैकलाग।<br><br>
-        <div class="detail-card-grid">
-            <div class="detail-card"><strong>1. Amazon:</strong> ₹28 - 45 LPA (7.0+ CGPA, DSA कोडिंग राउंड)</div>
-            <div class="detail-card"><strong>2. TCS:</strong> ₹3.36 - 9.0 LPA (60% अंक, TCS NQT टेस्ट)</div>
-            <div class="detail-card"><strong>3. Infosys:</strong> ₹3.6 - 9.5 LPA (65% अंक, ऑनलाइन असेसमेंट)</div>
-            <div class="detail-card"><strong>4. Wipro:</strong> ₹3.5 - 6.5 LPA (60% अंक, एप्टीट्यूड व कोडिंग)</div>
-            <div class="detail-card"><strong>5. Cognizant:</strong> ₹4.0 - 6.75 LPA (60% अंक, स्किल टेस्ट)</div>
-        </div>`,
+        <strong>सामान्य पात्रता:</strong> न्यूनतम 60% या 6.5 CGPA, 0 एक्टिव बैकलाग।<br><br>
+        • <strong>Amazon:</strong> ₹28 - 45 LPA (7.0+ CGPA, DSA राउंड)<br>
+        • <strong>TCS:</strong> ₹3.36 - 9.0 LPA (60% अंक)<br>
+        • <strong>Infosys:</strong> ₹3.6 - 9.5 LPA (65% अंक)<br>
+        • <strong>Wipro:</strong> ₹3.5 - 6.5 LPA (60% अंक)<br>
+        • <strong>Cognizant:</strong> ₹4.0 - 6.75 LPA (60% अंक)`,
 
         ta: `💼 <strong>வளாக வேலைவாய்ப்பு (Placements) மற்றும் 5 முன்னணி நிறுவனங்கள்:</strong><br><br>
         <strong>பொதுவான தகுதி:</strong> 60% அல்லது 6.5 CGPA, அரியர்ஸ் இருக்கக்கூடாது.<br><br>
-        <div class="detail-card-grid">
-            <div class="detail-card"><strong>1. Amazon:</strong> ₹28 - 45 LPA (7.0+ CGPA, DSA)</div>
-            <div class="detail-card"><strong>2. TCS:</strong> ₹3.36 - 9.0 LPA (60%, TCS NQT)</div>
-            <div class="detail-card"><strong>3. Infosys:</strong> ₹3.6 - 9.5 LPA (65%, InfyTQ)</div>
-            <div class="detail-card"><strong>4. Wipro:</strong> ₹3.5 - 6.5 LPA (60%, Coding)</div>
-            <div class="detail-card"><strong>5. Cognizant:</strong> ₹4.0 - 6.75 LPA (60%)</div>
-        </div>`
+        • <strong>Amazon:</strong> ₹28 - 45 LPA | <strong>TCS:</strong> ₹3.36 - 9.0 LPA<br>
+        • <strong>Infosys:</strong> ₹3.6 - 9.5 LPA | <strong>Wipro:</strong> ₹3.5 - 6.5 LPA<br>
+        • <strong>Cognizant:</strong> ₹4.0 - 6.75 LPA`
     },
 
-    // 3. HOSTEL & CAMPUS FACILITIES
+    // 3. HOSTEL & CAMPUS
     hostel: {
         keywords: [
             'hostel', 'campus', 'room', 'rooms', 'mess', 'accommodation', 
             'curfew', 'in-time', 'library', 'sports', 'gym', 'wifi', 
-            'medical', 'hospital', 'facilities', 'outing', 'warden', 'hostel life'
+            'medical', 'hospital', 'facilities', 'outing', 'warden'
         ],
         en: `🏠 <strong>Campus & Hostel Infrastructure Overview:</strong><br><br>
-        
-        <div class="detail-card-grid">
-            <div class="detail-card">
-                <div class="detail-card-header">
-                    <span>1. Hostel Rooms & Amenities</span>
-                    <span class="tag-badge tag-cyan">₹65,000 / yr</span>
-                </div>
-                • <strong>Rooms:</strong> 2-Sharing (AC/Non-AC) and 3/4-Sharing standard.<br>
-                • <strong>Furniture:</strong> Study desk, wardrobe, bed, chair & personal charging point.<br>
-                • <strong>Facilities:</strong> 24/7 hot water, RO drinking water, automatic laundry, 100 Mbps Wi-Fi.
-            </div>
-
-            <div class="detail-card">
-                <div class="detail-card-header">
-                    <span>2. Mess & Dining Schedule</span>
-                    <span class="tag-badge">4 Meals Daily</span>
-                </div>
-                • <strong>Timings:</strong> Breakfast (7:30-9:00 AM), Lunch (12:30-2:00 PM), Snacks (5:00-6:00 PM), Dinner (7:30-9:15 PM).<br>
-                • <strong>Quality:</strong> FSSAI certified. Nutritious vegetarian daily + Non-vegetarian served thrice a week.
-            </div>
-
-            <div class="detail-card">
-                <div class="detail-card-header">
-                    <span>3. Campus Amenities</span>
-                    <span class="tag-badge tag-green">Infrastructure</span>
-                </div>
-                • <strong>Central Library:</strong> Open 8:00 AM - 9:00 PM with IEEE & Springer digital access.<br>
-                • <strong>Sports Complex:</strong> Cricket ground, basketball arena, indoor badminton & separate gyms.<br>
-                • <strong>Health Center:</strong> 24/7 doctor, resident nurses, and on-campus ambulance.
-            </div>
-
-            <div class="danger-alert-box">
-                🚫 <strong>Curfew & Rules:</strong> Hostel in-time is strictly <strong>8:30 PM</strong>. Outing passes must be requested digitally via the Student ERP with parent OTP verification.
-            </div>
-        </div>`,
+        • <strong>Hostel Rooms:</strong> 2-Sharing & 3-Sharing (₹65,000/yr Non-AC, ₹85,000/yr AC). Includes study desk, hot water, and laundry.<br>
+        • <strong>Mess & Dining:</strong> 4 times daily hygienic meals. Veg daily + Non-Veg 3 days a week.<br>
+        • <strong>Library:</strong> Central Digital Library open 8:00 AM - 9:00 PM.<br>
+        • <strong>Sports & Health:</strong> Cricket ground, basketball arena, gym, and 24/7 on-campus ambulance.<br>
+        • <strong>Curfew:</strong> Hostel gate closes at <strong>8:30 PM</strong>. Outings require ERP digital approval.`,
 
         te: `🏠 <strong>క్యాంపస్ మరియు హాస్టల్ పూర్తి వివరాలు:</strong><br><br>
-        • <strong>హాస్టల్ గదులు:</strong> 2-షేరింగ్ మరియు 3-షేరింగ్ గదులు (₹65,000 / ఏటా).<br>
+        • <strong>హాస్టల్ గదులు:</strong> 2-షేరింగ్ మరియు 3-షేరింగ్ (₹65,000 / ఏటా).<br>
         • <strong>మెస్ భోజనం:</strong> రోజుకు 4 పూటలా భోజనం (వారానికి 3 రోజులు నాన్-వెజ్).<br>
-        • <strong>సమయం:</strong> రాత్రి 8:30 లోపు హాస్టల్‌కి చేరుకోవాలి. బయటకు వెళ్లడానికి ERP పాస్ తప్పనిసరి.<br>
+        • <strong>సమయం:</strong> రాత్రి 8:30 లోపు హాస్టల్‌కి చేరుకోవాలి.<br>
         • <strong>వసతులు:</strong> లైబ్రరీ (ఉదయం 8 - రాత్రి 9), జిమ్, 24/7 అంబులెన్స్ సదుపాయం కలదు.`,
 
         hi: `🏠 <strong>कैंपस एवं हॉस्टल की संपूर्ण जानकारी:</strong><br><br>
-        • <strong>कमरे और फीस:</strong> 2-शेयरिंग और 3-शेयरिंग (₹65,000 / वर्ष, वाई-फाई और लॉन्ड्री सहित)।<br>
-        • <strong>मेस सुविधा:</strong> 4 समय का पौष्टिक भोजन (सप्ताह में 3 दिन नॉन-वेज)।<br>
-        • <strong>नियम:</strong> रात 8:30 बजे से पहले हॉस्टल में प्रवेश अनिवार्य है।<br>
-        • <strong>कैंपस:</strong> लाइब्रेरी (सुबह 8 से रात 9), आधुनिक जिम और 24/7 मेडिकल केयर।`,
+        • <strong>कमरे और फीस:</strong> ₹65,000 / वर्ष (भोजन, वाई-फाई और लॉन्ड्री सहित)।<br>
+        • <strong>मेस:</strong> दिन में 4 समय का भोजन।<br>
+        • <strong>समय:</strong> रात 8:30 बजे से पहले हॉस्टल में प्रवेश अनिवार्य है।<br>
+        • <strong>सुविधाएं:</strong> लाइब्रेरी (सुबह 8 से रात 9), जिम और 24/7 मेडिकल केयर।`,
 
         ta: `🏠 <strong>வளாகம் மற்றும் விடுதி (Hostel & Campus) விவரங்கள்:</strong><br><br>
         • <strong>விடுதி கட்டணம்:</strong> ஆண்டுக்கு ₹65,000 (உணவு மற்றும் வைஃபை உட்பட).<br>
-        • <strong>உணவு:</strong> தினமும் 4 வேளை உணவு வழங்கப்படுகிறது.<br>
         • <strong>நேரம்:</strong> இரவு 8:30 மணிக்குள் விடுதிக்குத் திரும்ப வேண்டும்.<br>
         • <strong>வசதிகள்:</strong> நூலகம், விளையாட்டு மைதானம், ஜிம் மற்றும் மருத்துவ மையம் உள்ளன.`
     },
@@ -308,20 +217,17 @@ const knowledgeBase = {
         • B.Tech, M.Tech, MBA மற்றும் MCA படிப்புகள் உள்ளன. பிளஸ் 2 தேர்வில் 60% மதிப்பெண்கள் அவசியம்.`
     },
 
-    // 5. ACADEMICS & EXAMS
+    // 5. ACADEMICS
     academics: {
         keywords: ['exam', 'academic', 'attendance', 'syllabus', 'mid', 'semester', 'results', 'timetable'],
         en: `📚 <strong>Academics & Regulations:</strong><br>
-        • <strong>Attendance:</strong> Minimum <strong>75% mandatory</strong> for exams (65% with Medical Condonation).<br>
+        • <strong>Attendance:</strong> Minimum <strong>75% mandatory</strong> for exams.<br>
         • <strong>Mid Exams:</strong> Mid-1 at the 8th week; Mid-2 at the 16th week.<br>
         • <strong>Results:</strong> Published on student ERP within 30 days of exams.`,
         te: `📚 <strong>విద్యా మరియు పరీక్షల వివరాలు:</strong><br>
-        • సెమిస్టర్ పరీక్షలు రాయడానికి 75% హాజరు తప్పనిసరి.<br>
-        • ఫలితాలు 30 రోజుల్లో విద్యార్థి ERP పోర్టల్‌లో విడుదల చేయబడతాయి.`,
-        hi: `📚 <strong>अकादमिक और परीक्षा:</strong><br>
-        • परीक्षा में बैठने के लिए कम से कम 75% उपस्थिति अनिवार्य है।`,
-        ta: `📚 <strong>கல்வி மற்றும் தேர்வுகள்:</strong><br>
-        • தேர்வு எழுத குறைந்தபட்சம் 75% வருகைப்பதிவு கட்டாயம்.`
+        • సెమిస్టర్ పరీక్షలు రాయడానికి 75% హాజరు తప్పనిసరి. ఫలితాలు 30 రోజుల్లో పోర్టల్‌లో విడుదలవుతాయి.`,
+        hi: `📚 <strong>अकादमिक और परीक्षा:</strong> कम से कम 75% उपस्थिति अनिवार्य है।`,
+        ta: `📚 <strong>கல்வி மற்றும் தேர்வுகள்:</strong> தேர்வு எழுத குறைந்தபட்சம் 75% வருகைப்பதிவு கட்டாயம்.`
     },
 
     // 6. STUDENT SERVICES
@@ -331,7 +237,7 @@ const knowledgeBase = {
         • <strong>Bonafide Certificate:</strong> Apply on ERP; generated in 24 hours at Counter 3.<br>
         • <strong>Duplicate ID:</strong> Pay ₹150 at the cash counter and collect from Admin desk.<br>
         • <strong>Grievances:</strong> Mail to <em>grievance@college.edu</em>.`,
-        te: `📝 <strong>విద్యార్థి సేవలు:</strong> బోనఫైడ్ సర్టిఫికెట్ ERP ద్వారా దరఖాస్తు చేసుకోవచ్చు (24 గంటల్లో లభిస్తుంది).`,
+        te: `📝 <strong>విద్యార్థి సేవలు:</strong> బోనఫైడ్ సర్టిఫికెట్ ERP ద్వారా దరఖాస్తు చేసుకోవచ్చు.`,
         hi: `📝 <strong>छात्र सेवाएं:</strong> बोनाफाइड प्रमाणपत्र ERP पोर्टल पर 24 घंटे में प्राप्त करें।`,
         ta: `📝 <strong>மாணவர் சேவைகள்:</strong> போனஃபைட் சான்றிதழ் போர்ட்டல் மூலம் 24 மணி நேரத்தில் பெறலாம்.`
     },
@@ -342,7 +248,7 @@ const knowledgeBase = {
         en: `🎯 <strong>Career & Skills Development:</strong><br>
         • <strong>Software Track:</strong> DSA (C++/Java/Python) + MERN or SpringBoot + Git.<br>
         • <strong>Higher Studies:</strong> Free weekly GATE & GRE orientation sessions every Saturday.`,
-        te: `🎯 <strong>కెరీర్ గైడెన్స్:</strong> DSA, పైథాన్, జావా నేర్చుకోండి. గేట్ (GATE) కోచింగ్ శనివారాలలో లభిస్తుంది.`,
+        te: `🎯 <strong>కెరీర్ గైడెన్స్:</strong> DSA, పైథాన్, జావా నేర్చుకోండి. గేట్ కోచింగ్ శనివారాలలో లభిస్తుంది.`,
         hi: `🎯 <strong>करियर मार्गदर्शन:</strong> DSA, Python, Java और फुल स्टैक वेब डेवलपमेंट पर ध्यान दें।`,
         ta: `🎯 <strong>தொழில் வழிகாட்டுதல்:</strong> DSA, Python, Java திறன்களை வளர்த்துக்கொள்ளுங்கள்.`
     },
@@ -351,9 +257,9 @@ const knowledgeBase = {
     events: {
         keywords: ['event', 'fest', 'cultural', 'hackathon', 'circular', 'notice', 'holiday'],
         en: `📢 <strong>Events & Notifications:</strong><br>
-        • <strong>TechNova Hackathon:</strong> Coming up in October with ₹2 Lakhs in prizes!<br>
+        • <strong>TechNova Hackathon:</strong> Annual National Hackathon in October with ₹2 Lakhs in prizes!<br>
         • <strong>Vibrance Fest:</strong> Annual Cultural Fest held in March.<br>
-        • <strong>Circulars:</strong> Check the student ERP notice board for regular exam schedules.`,
+        • <strong>Circulars:</strong> Check the student ERP notice board for regular updates.`,
         te: `📢 <strong>నోటీసులు మరియు ఈవెంట్స్:</strong> వార్షిక టెక్ హ్యాకథాన్ అక్టోబర్‌లో మరియు కల్చరల్ ఫెస్ట్ మార్చిలో జరుగుతాయి.`,
         hi: `📢 <strong>इवेंट्स और सूचनाएं:</strong> टेकनोवा हैकथॉन अक्टूबर में आयोजित होगा और वाइब्रेंस फेस्ट मार्च में होगा।`,
         ta: `📢 <strong>நிகழ்வுகள்:</strong> தொழில்நுட்ப ஹேக்கத்தான் அக்டோபரிலும், கலாச்சார விழா மார்ச்சிலும் நடைபெறும்.`
@@ -391,7 +297,7 @@ const conversationalIntents = {
         ta: "😄 <em>கம்ப்யூட்டர் சயின்ஸ் மாணவர்களின் மிகப்பெரிய திறமை என்ன தெரியுமா?</em><br>பரீட்சைக்கு முந்தைய இரவில் 5 யூனிட்டுகளையும் படித்து முடிப்பது!"
     },
     canteen: {
-        keywords: ['canteen', 'cafeteria', 'coffee shop', 'snacks counter', 'campus bakery'],
+        keywords: ['canteen', 'cafeteria', 'coffee shop', 'snacks counter'],
         en: "☕ The campus cafeteria is open from 7:30 AM to 8:30 PM. We serve hot South/North Indian meals, beverages, and snacks at student-friendly prices!",
         te: "☕ క్యాంపస్ క్యాంటీన్ ఉదయం 7:30 నుండి రాత్రి 8:30 వరకు తెరిచి ఉంటుంది.",
         hi: "☕ कॉलेज कैंटीन सुबह 7:30 से रात 8:30 तक खुली रहती है।",
@@ -409,7 +315,7 @@ const conversationalIntents = {
 // Conversational Fallbacks
 const generalFallbacks = {
     en: (query) => `🤖 I understand you're asking about "<strong>${query}</strong>". Here are direct topics you can explore:<br>
-    • Click <strong>Fees & Scholarships</strong> for complete fee breakdown.<br>
+    • Click <strong>Fees & Scholarships</strong> for complete fee details.<br>
     • Click <strong>Placements</strong> for top company cutoffs (TCS, Amazon, etc.).<br>
     • Click <strong>Hostel & Campus</strong> for rooms and mess details.<br>
     • Or reach out to our desk at <strong>admin@college.edu</strong>.`,
@@ -418,13 +324,13 @@ const generalFallbacks = {
     ta: (query) => `🤖 நீங்கள் "<strong>${query}</strong>" பற்றி கேட்கிறீர்கள். இதன் விவரங்களுக்கு கல்லூரி அலுவலகத்தை <strong>+91 040-23456789</strong> என்ற எண்ணில் தொடர்பு கொள்ளலாம்.`
 };
 
-// Welcome Message per Language
+// Welcome Card per Language
 const welcomeMessages = {
     en: `🎓 <strong>Welcome to CampusAI Assistant!</strong><br>
     I can assist you with <strong>Fees & Scholarships</strong>, <strong>Placements (TCS, Amazon, Infosys, Wipro, Cognizant)</strong>, Hostel living, Admissions, and Exams.<br><br>
     <i>Try asking:</i>
     <div class="card-action-grid">
-        <button class="interactive-btn" onclick="sendQuickPrompt('Fees and scholarships details')">💰 Fees & Scholarships</button>
+        <button class="interactive-btn" onclick="sendQuickPrompt('college fee details and scholarships')">💰 Fees & Scholarships</button>
         <button class="interactive-btn" onclick="sendQuickPrompt('Placement eligibility and company criteria')">💼 Placements Hub</button>
         <button class="interactive-btn" onclick="sendQuickPrompt('Hostel facilities, mess food and timings')">🏠 Hostel & Life</button>
         <button class="interactive-btn" onclick="sendQuickPrompt('College admission process and dates')">🏫 Admissions</button>
@@ -433,21 +339,21 @@ const welcomeMessages = {
     నేను మీకు <strong>ఫీజులు & స్కాలర్‌షిప్‌లు</strong>, <strong>ప్లేస్‌మెంట్స్ (Amazon, TCS, Infosys)</strong> మరియు హాస్టల్ వివరాలలో సహాయం చేయగలను.<br><br>
     <i>ప్రశ్నించండి:</i>
     <div class="card-action-grid">
-        <button class="interactive-btn" onclick="sendQuickPrompt('Fees and scholarships details')">💰 ఫీజులు & స్కాలర్‌షిప్‌లు</button>
+        <button class="interactive-btn" onclick="sendQuickPrompt('college fee details and scholarships')">💰 ఫీజులు & స్కాలర్‌షిప్‌లు</button>
         <button class="interactive-btn" onclick="sendQuickPrompt('Placement eligibility and company criteria')">💼 ప్లేస్‌మెంట్స్ వివరాలు</button>
     </div>`,
     hi: `🎓 <strong>CampusAI असिस्टेंट में आपका स्वागत है!</strong><br>
     मैं आपको <strong>कॉलेज फीस, स्कॉलरशिप</strong>, <strong>प्लेसमेंट (Amazon, TCS, Infosys)</strong> और हॉस्टल के बारे में सभी जानकारी दे सकता हूँ।<br><br>
     <i>पूछें:</i>
     <div class="card-action-grid">
-        <button class="interactive-btn" onclick="sendQuickPrompt('Fees and scholarships details')">💰 फीस एवं छात्रवृत्ति</button>
+        <button class="interactive-btn" onclick="sendQuickPrompt('college fee details and scholarships')">💰 फीस एवं छात्रवृत्ति</button>
         <button class="interactive-btn" onclick="sendQuickPrompt('Placement eligibility and company criteria')">💼 प्लेसमेंट कट-ऑफ</button>
     </div>`,
     ta: `🎓 <strong>CampusAI உதவியாளருக்கு வரவேற்கிறோம்!</strong><br>
     <strong>கல்விக் கட்டணம் & உதவித்தொகை</strong>, <strong>வேலைவாய்ப்பு (TCS, Amazon, Infosys)</strong> மற்றும் விடுதி பற்றி நான் உங்களுக்கு உதவ முடியும்.<br><br>
     <i>கேட்கவும்:</i>
     <div class="card-action-grid">
-        <button class="interactive-btn" onclick="sendQuickPrompt('Fees and scholarships details')">💰 கல்விக் கட்டணம்</button>
+        <button class="interactive-btn" onclick="sendQuickPrompt('college fee details and scholarships')">💰 கல்விக் கட்டணம்</button>
         <button class="interactive-btn" onclick="sendQuickPrompt('Placement eligibility and company criteria')">💼 வேலைவாய்ப்பு விவரங்கள்</button>
     </div>`
 };
@@ -486,16 +392,23 @@ function sendQuickPrompt(promptText) {
 }
 
 /**
- * FIXED ROUTING PRIORITY ENGINE:
- * 1. Greetings, thanks, identity, jokes.
- * 2. COLLEGE DOMAIN KNOWLEDGE BASE (Fees, Placements, Hostel, Admissions).
- * 3. Secondary chit-chat (Canteen, Stress).
- * 4. General conversational fallback.
+ * HIGH-PRECISION ROUTING LOGIC:
+ * 1. Checks Fee keywords with TOP PRIORITY so fee questions never get overridden.
+ * 2. Checks Greetings, Identity, Jokes, Thanks.
+ * 3. Checks other College Topics (Placements, Hostel, Admissions).
+ * 4. Conversational Fallback.
  */
 function generateAIResponse(query) {
     const cleanQuery = query.toLowerCase().trim();
 
-    // 1. Direct Greetings, Identity, Thanks & Jokes
+    // 1. TOP PRIORITY: FEE & SCHOLARSHIP QUERIES
+    const feeWords = ['fee', 'fees', 'tuition', 'scholarship', 'scholarships', 'payment', 'due', 'dues', 'cost', 'money', 'jvd', 'epass'];
+    const isFeeQuery = feeWords.some(word => cleanQuery.includes(word));
+    if (isFeeQuery) {
+        return knowledgeBase.fees[currentLang];
+    }
+
+    // 2. Direct Greetings, Identity, Thanks & Jokes
     const quickTalk = ['greeting', 'thanks', 'joke', 'identity'];
     for (const key of quickTalk) {
         const item = conversationalIntents[key];
@@ -504,7 +417,7 @@ function generateAIResponse(query) {
         }
     }
 
-    // 2. CHECK COLLEGE KNOWLEDGE BASE FIRST
+    // 3. Check College Knowledge Base (Placements, Hostel, Admissions, etc.)
     for (const category in knowledgeBase) {
         const item = knowledgeBase[category];
         const matchFound = item.keywords.some(kw => cleanQuery.includes(kw));
@@ -513,7 +426,7 @@ function generateAIResponse(query) {
         }
     }
 
-    // 3. Secondary Chit-Chat (Canteen, Stress)
+    // 4. Secondary Chit-Chat (Canteen, Stress)
     for (const intentKey in conversationalIntents) {
         const item = conversationalIntents[intentKey];
         if (item.keywords.some(kw => cleanQuery.includes(kw))) {
@@ -521,7 +434,7 @@ function generateAIResponse(query) {
         }
     }
 
-    // 4. Fallback for open-ended queries
+    // 5. Fallback for open-ended queries
     return generalFallbacks[currentLang](escapeHTML(query));
 }
 
