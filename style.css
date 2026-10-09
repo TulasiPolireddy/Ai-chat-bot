@@ -35,7 +35,7 @@ body {
     padding: 12px;
 }
 
-/* Chat Shell */
+/* Chat App Shell */
 .chat-app-container {
     display: flex;
     width: 100%;
@@ -57,7 +57,7 @@ body {
     display: flex;
     flex-direction: column;
     padding: 20px;
-    gap: 18px;
+    gap: 16px;
     overflow-y: auto;
     transition: var(--transition);
 }
@@ -188,7 +188,7 @@ body {
     background: rgba(11, 15, 25, 0.6);
 }
 
-/* Chat Header */
+/* Header */
 .chat-header {
     height: 68px;
     border-bottom: 1px solid var(--border-color);
@@ -299,7 +299,7 @@ body {
 .message {
     display: flex;
     gap: 12px;
-    max-width: 85%;
+    max-width: 88%;
     animation: fadeIn 0.3s ease;
 }
 
@@ -361,7 +361,7 @@ body {
     text-align: right;
 }
 
-/* Structured Company Cards Inside Chat */
+/* Structured Company Cards */
 .company-card-grid {
     display: flex;
     flex-direction: column;
@@ -390,6 +390,156 @@ body {
     font-size: 0.8rem;
 }
 
+/* Structured Fee Styles */
+.fee-container {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    margin-top: 10px;
+}
+
+.fee-category-title {
+    font-size: 0.82rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    color: #818cf8;
+    margin-top: 4px;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+}
+
+.fee-table-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 8px;
+}
+
+.fee-card {
+    background: var(--card-bg);
+    border: 1px solid var(--border-color);
+    padding: 10px 14px;
+    border-radius: 8px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.fee-card-info strong {
+    color: #e2e8f0;
+    font-size: 0.88rem;
+    display: block;
+}
+
+.fee-card-info span {
+    color: var(--text-muted);
+    font-size: 0.76rem;
+}
+
+.fee-amount-badge {
+    background: rgba(99, 102, 241, 0.18);
+    color: #a5b4fc;
+    border: 1px solid rgba(99, 102, 241, 0.35);
+    padding: 4px 10px;
+    border-radius: 12px;
+    font-weight: 700;
+    font-size: 0.82rem;
+    white-space: nowrap;
+}
+
+.fee-notice-box {
+    background: rgba(16, 185, 129, 0.08);
+    border: 1px solid rgba(16, 185, 129, 0.25);
+    border-radius: 8px;
+    padding: 10px 12px;
+    font-size: 0.82rem;
+    line-height: 1.5;
+    color: #d1fae5;
+}
+
+.fee-alert-box {
+    background: rgba(245, 158, 11, 0.08);
+    border: 1px solid rgba(245, 158, 11, 0.25);
+    border-radius: 8px;
+    padding: 10px 12px;
+    font-size: 0.82rem;
+    line-height: 1.5;
+    color: #fef3c7;
+}
+
+/* Structured Campus & Hostel Styles */
+.campus-container {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    margin-top: 10px;
+}
+
+.campus-section-title {
+    font-size: 0.82rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    color: #38bdf8;
+    margin-top: 4px;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+}
+
+.campus-card-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 8px;
+}
+
+.campus-card {
+    background: var(--card-bg);
+    border: 1px solid var(--border-color);
+    padding: 12px 14px;
+    border-radius: 8px;
+}
+
+.campus-card-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 6px;
+}
+
+.campus-card-header strong {
+    color: #f1f5f9;
+    font-size: 0.9rem;
+}
+
+.campus-tag {
+    background: rgba(56, 189, 248, 0.15);
+    color: #38bdf8;
+    border: 1px solid rgba(56, 189, 248, 0.3);
+    padding: 2px 8px;
+    border-radius: 12px;
+    font-size: 0.72rem;
+    font-weight: 600;
+}
+
+.campus-card-body {
+    font-size: 0.82rem;
+    color: var(--text-muted);
+    line-height: 1.5;
+}
+
+.rule-alert-box {
+    background: rgba(239, 68, 68, 0.08);
+    border: 1px solid rgba(239, 68, 68, 0.25);
+    border-radius: 8px;
+    padding: 10px 14px;
+    font-size: 0.82rem;
+    line-height: 1.55;
+    color: #fecaca;
+}
+
+/* Button Grids */
 .card-action-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(130px, 1fr));
