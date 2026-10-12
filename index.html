@@ -1,90 +1,148 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>CampusAI - College Assistant</title>
+    <title>CampusAI | Smart Multilingual College Assistant</title>
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <link rel="stylesheet" href="style.css">
-    <script src="script.js" defer></script>
 </head>
 <body>
 
-    <div class="app">
-        <aside class="sidebar">
-            <h2>🎓 CampusAI</h2>
-            <p>Your College Assistant</p>
+    <div class="chat-app-container">
+        <!-- Sidebar Navigation Drawer -->
+        <aside class="chat-sidebar" id="chatSidebar">
+            <div class="brand">
+                <div class="brand-logo">
+                    <i class="fa-solid fa-graduation-cap"></i>
+                </div>
+                <div>
+                    <h2>CampusAI</h2>
+                    <span class="badge">College AI Assistant</span>
+                </div>
+            </div>
 
-            <button onclick="newChat()">+ New Chat</button>
+            <div class="sidebar-section">
+                <h3>Main Menu</h3>
+                <div class="category-list">
+                    <button class="cat-btn" onclick="sendQuickPrompt('college fee details and scholarships')">
+                        <i class="fa-solid fa-indian-rupee-sign"></i> <span>Fees & Scholarships</span>
+                    </button>
+                    <button class="cat-btn" onclick="sendQuickPrompt('Placement eligibility and company criteria')">
+                        <i class="fa-solid fa-briefcase"></i> <span>Placements</span>
+                    </button>
+                    <button class="cat-btn" onclick="sendQuickPrompt('Hostel facilities, mess food and timings')">
+                        <i class="fa-solid fa-hotel"></i> <span>Hostel & Campus</span>
+                    </button>
+                    <button class="cat-btn" onclick="sendQuickPrompt('College admission process and dates')">
+                        <i class="fa-solid fa-school"></i> <span>Admissions</span>
+                    </button>
+                    <button class="cat-btn" onclick="sendQuickPrompt('Exam schedule, syllabus and attendance')">
+                        <i class="fa-solid fa-book-open"></i> <span>Academics</span>
+                    </button>
+                    <button class="cat-btn" onclick="sendQuickPrompt('Career roadmaps, resume and skills guidance')">
+                        <i class="fa-solid fa-compass"></i> <span>Career Guidance</span>
+                    </button>
+                    <button class="cat-btn" onclick="sendQuickPrompt('College events, technical and cultural fests')">
+                        <i class="fa-solid fa-calendar-check"></i> <span>Events & Fests</span>
+                    </button>
+                    <button class="cat-btn" onclick="sendQuickPrompt('Recent circulars and notices')">
+                        <i class="fa-solid fa-bullhorn"></i> <span>Notifications</span>
+                    </button>
+                    <button class="cat-btn" onclick="sendQuickPrompt('Student services, bonafide and certificates')">
+                        <i class="fa-solid fa-id-card"></i> <span>Student Services</span>
+                    </button>
+                </div>
+            </div>
 
-            <h4>COLLEGE SERVICES</h4>
-            <button onclick="askTopic('Admissions')">🎓 Admissions</button>
-            <button onclick="askTopic('Placements')">💼 Placements & Jobs</button>
-            <button onclick="askTopic('Academics')">📚 Academics</button>
-            <button onclick="askTopic('Fees')">💰 Fees & Scholarships</button>
-            <button onclick="askTopic('Hostel')">🏠 Campus & Hostel</button>
-            <button onclick="askTopic('Career')">🚀 Career Guidance</button>
-            <button onclick="askTopic('Events')">🎉 Events & Notices</button>
-            <button onclick="showHelpdesk()">🛟 Student Helpdesk</button>
+            <!-- College Helpdesk Card -->
+            <div class="support-card">
+                <div class="support-icon"><i class="fa-solid fa-headset"></i></div>
+                <div>
+                    <h4>Campus Helpdesk</h4>
+                    <p>Connect with Administration</p>
+                    <button class="btn-support" onclick="triggerHandoff()"><i class="fa-solid fa-phone"></i> Contact Office</button>
+                </div>
+            </div>
         </aside>
 
-        <main class="chat-container">
-            <header>
-                <div>
-                    <h3>College Virtual Assistant</h3>
-                    <p>Ask me anything about your college!</p>
-                </div>
-                <span class="online">● Online</span>
-            </header>
-
-            <section class="chat-area" id="chatArea">
-                <div class="welcome" id="welcome">
-                    <div class="icon">🎓</div>
-                    <h1>Hi there! 👋</h1>
-                    <h2>How can I help you today?</h2>
-                    <p>Choose a topic or type your question below.</p>
-
-                    <div class="quick-options">
-                        <button onclick="askTopic('Admissions')">
-                            🎓 Admissions
-                        </button>
-                        <button onclick="askTopic('Placements')">
-                            💼 Placements
-                        </button>
-                        <button onclick="askTopic('Scholarships')">
-                            💰 Scholarships
-                        </button>
-                        <button onclick="askTopic('Exams')">
-                            📅 Exams & Results
-                        </button>
-                        <button onclick="askTopic('Resume')">
-                            📝 Resume Help
-                        </button>
-                        <button onclick="showHelpdesk()">
-                            🛟 Raise a Query
-                        </button>
+        <!-- Main Chat Area -->
+        <main class="chat-main">
+            <!-- Header -->
+            <header class="chat-header">
+                <div class="header-left">
+                    <button class="mobile-toggle" id="menuToggle" aria-label="Toggle Menu">
+                        <i class="fa-solid fa-bars"></i>
+                    </button>
+                    <div class="status-indicator">
+                        <span class="online-dot"></span>
+                        <div>
+                            <h3>CampusAI Assistant</h3>
+                            <span class="subtext">Online • 24/7 Student Support</span>
+                        </div>
                     </div>
                 </div>
 
-                <div id="messages"></div>
-            </section>
+                <div class="header-actions">
+                    <!-- 4-Language Selector -->
+                    <div class="lang-selector">
+                        <i class="fa-solid fa-language"></i>
+                        <select id="langSelect" onchange="changeLanguage()">
+                            <option value="en">English</option>
+                            <option value="te">తెలుగు (Telugu)</option>
+                            <option value="hi">हिन्दी (Hindi)</option>
+                            <option value="ta">தமிழ் (Tamil)</option>
+                        </select>
+                    </div>
 
-            <div class="composer">
-                <input
-                    type="text"
-                    id="userInput"
-                    placeholder="Ask anything about your college..."
-                    autocomplete="off"
-                >
-                <button class="send" onclick="sendMessage()">➤</button>
+                    <!-- Reset Chat -->
+                    <button class="icon-btn" title="Reset Conversation" onclick="clearChat()">
+                        <i class="fa-solid fa-rotate-right"></i>
+                    </button>
+                </div>
+            </header>
+
+            <!-- Chat Message Window -->
+            <div class="chat-body" id="chatBody"></div>
+
+            <!-- Quick Action Chips -->
+            <div class="quick-chips" id="quickChips">
+                <button class="chip" onclick="sendQuickPrompt('college fee details and scholarships')">💰 Fees & Scholarships</button>
+                <button class="chip" onclick="sendQuickPrompt('Placement eligibility and company criteria')">💼 Placements (TCS, Amazon)</button>
+                <button class="chip" onclick="sendQuickPrompt('Hostel facilities, mess food and timings')">🏠 Hostel & Campus</button>
+                <button class="chip" onclick="sendQuickPrompt('College admission process and dates')">📅 Admissions</button>
+                <button class="chip" onclick="sendQuickPrompt('How can I get a Bonafide Certificate?')">📝 Bonafide Form</button>
+                <button class="chip" onclick="sendQuickPrompt('Tell me a campus joke')">😄 Tell a Joke</button>
             </div>
 
-            <div class="footer">
-                Verify important dates and fees with your college office.
-                <button onclick="newChat()">Clear Chat</button>
-            </div>
+            <!-- Chat Input Footer -->
+            <footer class="chat-footer">
+                <div class="input-wrapper">
+                    <!-- File Upload Button -->
+                    <label class="file-upload-btn" title="Upload circular or syllabus">
+                        <i class="fa-solid fa-paperclip"></i>
+                        <input type="file" id="docUpload" accept=".pdf,.doc,.txt" onchange="handleFileUpload(event)">
+                    </label>
+
+                    <input type="text" id="userInput" placeholder="Ask about fees, hostel, placements, cutoffs, exams..." autocomplete="off">
+                    
+                    <!-- Voice Input Button -->
+                    <button id="micBtn" class="action-btn" title="Voice Input" onclick="toggleSpeechRecognition()">
+                        <i class="fa-solid fa-microphone"></i>
+                    </button>
+
+                    <!-- Send Button -->
+                    <button id="sendBtn" class="send-btn" onclick="sendMessage()">
+                        <i class="fa-solid fa-paper-plane"></i>
+                    </button>
+                </div>
+            </footer>
         </main>
     </div>
 
+    <script src="script.js"></script>
 </body>
 </html>
